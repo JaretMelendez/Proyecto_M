@@ -6,13 +6,13 @@ import numpy as np
 import math
 import random
 import statistics
+import matplotlib.pyplot as plt
+
 from pyautocad import Autocad, APoint
 from numpy import random as rd
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 from matplotlib import gridspec
-import matplotlib.pyplot as plt
-
 
 # --------------- Procesamiento de la imagen --------
 imagen = cv2.imread('im.png')
@@ -105,7 +105,7 @@ def logistica(alpha,v):
 
 ## Prepara los datos para la entrada a la red 
 [l1,l2]= numpy.shape(yy1)
-tam = l1*l2;
+tam = l1*l2
 ss = StandardScaler()
 xn = ss.fit_transform(xx1)
 yn = ss.fit_transform(yy1)
@@ -156,7 +156,7 @@ inputt = np.zeros((2,1))
 for i in range(epocas):
     mezclar_indice = np.random.permutation(tamentre)
     mezclar_indice = list(mezclar_indice)
-    er = 0;
+    er = 0
     for j in range (tamentre):
         # calcular salida capa 1
         inputt[0][0] = xn[indientre[mezclar_indice[j]]]
